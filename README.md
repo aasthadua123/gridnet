@@ -14,11 +14,13 @@
 
 # Build Information
 
-> Status: Pre-Alpha
+> Status: Alpha 1
 
 > Deployed: No
 
 ## To-do List
+
+* Set up Link Systems
 
 * Set up Authentication APIs
 

@@ -45,6 +45,7 @@ const register = (req, res) => {
         success = false;
         errors.push('Phone number is invalid.');
       }
+      console.log(otp_em)
       /* Store user in database */
       let User = new userModel({
         "username":req.body.username,

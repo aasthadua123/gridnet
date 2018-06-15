@@ -10,9 +10,8 @@ router.post('/login', require(__base + '/modules/auth/login.js'));
 
 /* Verification Routes */
 
-// router.post('/verify/phone/:username', require(__base + 'modules/auth/verifyPhone.js'))
-
-// router.get('/verify/email/:username/:code', require(__base + 'modules/auth/verifyEmail.js'))
+router.post('/verify/:type/:username', require(__base + 'modules/auth/verify.js'));
+router.get('/verify/:type/:username/:code', require(__base + 'modules/auth/verify.js'));
 
 /* ----------------------- Restricted Routes ----------------------*/
 
