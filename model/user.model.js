@@ -24,14 +24,27 @@ const user = new schema({
       "required": true
     },
     "verified": {
-      "phone": Boolean,
-      "email": Boolean
+      "phone": {
+        "type": Boolean,
+        "default": false
+      },
+      "email": {
+        "type": Boolean,
+        "default": false
+      }
     },
     "code": {
       "phone": Number,
       "email": String
     },
-    "status": Number
+    "level": {
+      "type": Number,
+      "default": 1
+    },
+    "status": {
+      "type": Number,
+      "default": 0
+    }
 });
 
 module.exports = mongoose.model('user', user);

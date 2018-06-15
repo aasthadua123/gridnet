@@ -8,7 +8,7 @@ global.__base = __dirname + '/';
 const config = require(__base + 'system/config.js');
 
 /* Mongoose connection */
-// mongoose.connect(config.details.database.external);
+mongoose.connect(config.details.database.external);
 
 /* Express Instance */
 const app = express();
