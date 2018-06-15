@@ -1,0 +1,28 @@
+{
+  "name": "gridnet",
+  "version": "1.0.0",
+  "description": "A social network framework.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aadityachakravarty/gridnet.git"
+  },
+  "keywords": [
+    "Social",
+    "Networking",
+    "Site",
+    "Framework",
+    "Node",
+    "ReactJS",
+    "Mongo"
+  ],
+  "author": "Aaditya Chakravarty",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aadityachakravarty/gridnet/issues"
+  },
+  "homepage": "https://github.com/aadityachakravarty/gridnet#readme"
+}
