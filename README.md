@@ -8,14 +8,24 @@
 
 > npm install
 
-> build config.js (reference: config.dummy.js in system/ )
+> build config.js
 
 > npm start
 
-## Routes
+# Build Information
+
+> Status: Pre-Alpha
+
+> Deployed: No
 
 ## To-do List
 
-* Basic Setup
+* Set up Authentication APIs
+
+* Set up friend system
+
+* Set up Post Logging
 
 ## Application URL
+
+* To Be deployed
