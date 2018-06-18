@@ -16,7 +16,7 @@ const user = new schema({
       "required": true
     },
     "phone": {
-      "type": Number,
+      "type": String,
       "required": true
     },
     "password": {

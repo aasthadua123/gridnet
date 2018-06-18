@@ -7,10 +7,7 @@ const config = require(__base + 'system/config.js');
 
 const checkUser = (req, res) => {
   // Check if the user exists.
-  let field = [{"username":req.body.username}, {"email":req.body.username}];
-  if(!isNaN(parseInt(req.body.username))) {
-    field.push({"phone": req.body.username});
-  }
+  let field = [{"username":req.body.username}, {"email":req.body.username}, {"phone": req.body.username}];
   userModel.findOne({$or: field}, (err,user) => {
     if(err) {
       console.log(err)
