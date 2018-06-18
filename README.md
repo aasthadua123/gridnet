@@ -14,11 +14,17 @@
 
 # Build Information
 
-> Status: Alpha 1
+> Status: Alpha 2
 
 > Deployed: No
 
 ## To-do List
+
+* Set up forgot password.
+
+* Set up oAuth APIs
+
+* Set up Change Data APIs.
 
 * Set up Link Systems
 

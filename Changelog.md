@@ -1,5 +1,15 @@
 # Changelog
 
+## Alpha 2
+
+> Optimizations for Login .
+
+> Set up Protect page code.
+
+> Set up To do for oauth.
+
+> Set up Change Password but needs to be fixed.
+
 ## Alpha 1
 
 > Created verification routes and login route APIs.

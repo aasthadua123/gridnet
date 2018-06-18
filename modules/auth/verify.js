@@ -11,14 +11,14 @@ const verify = (req, res) => {
         res.json({ success: false, message: 'Verification failed. User not found.' });
       }
       else {
-        let options = {};
-        if(type === "phone") {
-          options = {$set:{"verified.phone":true},$unset: {"code.phone": 1}};
-        }
-        else if(type === "email") {
-          options = {$set:{"verified.email":true},$unset: {"code.email": 1}};
-        }
         if(user.code[type] == code) {
+          let options = {};
+          if(type === "phone") {
+            options = {$set:{"verified.phone":true},$unset: {"code.phone": 1}};
+          }
+          else if(type === "email") {
+            options = {$set:{"verified.email":true},$unset: {"code.email": 1}};
+          }
           checkDetails.findOneAndUpdate({"username": username}, options, {new: true}, (err, doc) => {
             if(err){
               console.log(err);

@@ -5,7 +5,6 @@ const jwt = require('jsonwebtoken')
 const config = require(__base + 'system/config.js')
 
 router.post('/register', require(__base + '/modules/auth/register.js'));
-
 router.post('/login', require(__base + '/modules/auth/login.js'));
 
 /* Verification Routes */
@@ -15,16 +14,16 @@ router.get('/verify/:type/:username/:code', require(__base + 'modules/auth/verif
 
 /* ----------------------- Restricted Routes ----------------------*/
 
-/*--|Authority Protect|--*/
-// const auth = require(__base + 'modules/auth/protect.js');
+/* Authority Protect */
+const protect = require(__base + 'modules/auth/protect.js');
 
-/*--|Authority payloadProtected Routes|--*/
+/* Protected Routes */
 
-// router.get('/status', auth, (req, res) => {
-// 	res.json({ "message": 'You are logged in.', "data":req.decoded });
-// })
+router.get('/status', protect, (req, res) => {
+	res.json({ "message": 'You are logged in.', "data":req.info });
+})
 
-// router.post('/change-password', auth, require(__base + 'modules/auth/passChange.js'))
+router.patch('/change-password', protect, require(__base + 'modules/auth/change.js'));
 
 // router.get('/logout', auth, require(__base + 'modules/auth/logout.js'))
 
