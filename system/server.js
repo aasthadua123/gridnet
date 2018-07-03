@@ -8,14 +8,14 @@ const config = require("./config");
 let db = config.setup.development.database;
 let port = process.env.PORT || config.setup.development.PORT;
 let sign = config.setup.development.sign;
-let cryptoKey = config.setup.development.cryptoKey;
+global.cryptoKey = config.setup.development.cryptoKey;
 
 mongoose.Promise = global.Promise;
 
 // Environment Setup
 if (option[2] === 'development' || option[2] === null || option[2] == undefined) {
     process.env.NODE_ENV = 'development';
-    global.cryptoKey = cryptoKey;
+    cryptoKey = cryptoKey;
     port = process.env.PORT || config.setup.development.PORT;
     db = config.setup.development.database;
     global.xe = {
@@ -26,7 +26,7 @@ if (option[2] === 'development' || option[2] === null || option[2] == undefined)
     };
 } else if (option[2] === 'testing') {
     process.env.NODE_ENV = 'testing';
-    global.cryptoKey = config.setup.testing.cryptoKey;
+    cryptoKey = config.setup.testing.cryptoKey;
     port = process.env.PORT || config.setup.testing.PORT;
     db = config.setup.testing.database;
     global.xe = {
@@ -37,7 +37,7 @@ if (option[2] === 'development' || option[2] === null || option[2] == undefined)
     };
 } else if (option[2] === 'production') {
     console.log("IN PRODUCTION");
-    global.cryptoKey = config.setup.production.cryptoKey;
+    cryptoKey = config.setup.production.cryptoKey;
     db = config.setup.production.database;
     port = process.env.PORT || config.setup.production.PORT;
     global.xe = {

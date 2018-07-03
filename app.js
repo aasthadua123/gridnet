@@ -15,19 +15,19 @@ const app = express();
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 
-if(global.xe.morgan != undefined) {
-  app.use(morgan(global.xe.morgan));
+if(xe.morgan != undefined) {
+  app.use(morgan(xe.morgan));
 }
 
-app.set('signature', global.xe.sign);
-app.set('salt', global.xe.salt);
-app.set('cbLink', global.xe.cbLink);
+app.set('signature', xe.sign);
+app.set('salt', xe.salt);
+app.set('cbLink', xe.cbLink);
 
-if(global.xe.type === "production") {
+if(xe.type === "production") {
   app.use(compress());
   app.use(helmet());
   app.enable('trust proxy');
-  if(global.httpsRedir) {
+  if(httpsRedir) {
     app.get('*', (req, res, next) => {
         if (req.get('x-forwarded-proto') != "https") {
             res.set('x-forwarded-proto', 'https');
