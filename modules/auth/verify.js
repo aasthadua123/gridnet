@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const checkDetails = require(__base + 'models/user.model.js');
+const checkDetails = require(__base + 'models/user.js');
 
 const verify = (req, res) => {
     let username = req.params.username;

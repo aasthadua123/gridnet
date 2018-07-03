@@ -30,7 +30,7 @@ if (option[2] === 'development' || option[2] === null || option[2] == undefined)
     port = process.env.PORT || config.setup.testing.PORT;
     db = config.setup.testing.database;
     global.xe = {
-      "morgan": "morgan-test",
+      "morgan": "tiny",
       "sign": config.setup.testing.sign,
       "cbLink": config.setup.testing.cbLink,
       "salt": config.setup.testing.salt

@@ -35,7 +35,8 @@ const user = new schema({
     },
     "code": {
       "phone": Number,
-      "email": String
+      "email": String,
+      "reset": String
     },
     "level": {
       "type": Number,
@@ -44,7 +45,9 @@ const user = new schema({
     "status": {
       "type": Number,
       "default": 0
-    }
+    },
+    "lastLogin":[Date],
+    "lastLogout":[Date]
 });
 
 module.exports = mongoose.model('user', user);

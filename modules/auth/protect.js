@@ -2,8 +2,7 @@ const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 
-const userModel = require(__base + 'models/user.model.js');
-const config = require(__base + 'system/config.js');
+const userModel = require(__base + 'models/user.js');
 
 // const oauthModel = require(__base + 'models/oauth.js');
 
@@ -13,7 +12,7 @@ const protect = (req,res,next) => {
 	// decode token
   if (token) {
 		// verifies secret and checks exp
-		jwt.verify(token, config.details.sign, (err, info) => {
+		jwt.verify(token, req.app.get('signature'), (err, info) => {
       if(info) {
         userModel.findOne({"username": info.username}, (err, user) => {
             if(err) { console.log(err); }

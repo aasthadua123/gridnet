@@ -1,9 +1,9 @@
 const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
+const moment = require('moment');
 
-const userModel = require(__base + 'models/user.model.js');
-const config = require(__base + 'system/config.js');
+const userModel = require(__base + 'models/user.js');
 
 const checkUser = (req, res) => {
   // Check if the user exists.
@@ -28,8 +28,11 @@ const checkUser = (req, res) => {
                 "email":user.email,
                 "level":user.level
               }
-              let token = jwt.sign(data, config.details.sign, {
+              let token = jwt.sign(data, req.app.get('signature'), {
                expiresIn: 86400 // expires in 24 hours
+              });
+              userModel.findOneAndUpdate({"username": user.username}, { $push:{"lastLogin":moment()} }, (err, doc) => {
+                  if (err) {console.log("Something wrong when updating data!");}
               });
               res.json({"success": true, "message": 'Authenticated', "token": token});
             }

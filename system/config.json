@@ -9,8 +9,8 @@
       "email": false
     },
     "origin": {
-      "access": true,
-      "type": "all"
+      "access": false,
+      "type": "list"
     }
   },
 
@@ -56,8 +56,6 @@
     "whitelist": [
       "http://127.0.0.1:8000",
       "http://localhost:8000",
-      "http://127.0.0.1:9000",
-      "http://localhost:9000",
       "http://127.0.0.1:9500",
       "http://localhost:9500"
     ]

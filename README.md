@@ -8,21 +8,27 @@
 
 > Allowed values for Cross Origin - List / All.
 
+## Commands
+
+> setup -> Generate the config file.
+
+> start -> Start the server in development mode. Args can be testing and production.
+
 ## Installation and Running
 
-> npm install
+> npm i || yarn install
 
-> npm run setup
+> npm run setup || yarn run setup
 
-> npm start
+> npm start || yarn start
 
 # Build Information
 
-> Status: Alpha 3
-
-> Deployed: No
+> Status: Alpha 4
 
 ## To-do List
+
+* Set up Email and SMS Logistics.
 
 * Setup Automated Installation Script.
 
@@ -33,8 +39,6 @@
 * Set up Change Data APIs.
 
 * Set up Link Systems
-
-* Set up Authentication APIs
 
 * Set up friend system
 

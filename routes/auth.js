@@ -1,18 +1,16 @@
-const express = require('express')
-const router = express.Router()
+const express = require('express');
+const jwt = require('jsonwebtoken');
 
-const jwt = require('jsonwebtoken')
-const config = require(__base + 'system/config')
+const router = express.Router()
 
 router.post('/register', require(__base + '/modules/auth/register.js'));
 router.post('/login', require(__base + '/modules/auth/login.js'));
+router.post('/forgot', require(__base + '/modules/auth/forgot.js'));
+router.patch('/reset/:id', require(__base + '/modules/auth/reset.js'));
 
 /* Verification Routes */
-
 router.post('/verify/:type/:username', require(__base + 'modules/auth/verify.js'));
 router.get('/verify/:type/:username/:code', require(__base + 'modules/auth/verify.js'));
-
-/* ----------------------- Restricted Routes ----------------------*/
 
 /* Authority Protect */
 const protect = require(__base + 'modules/auth/protect.js');
@@ -24,7 +22,6 @@ router.get('/status', protect, (req, res) => {
 })
 
 router.patch('/change-password', protect, require(__base + 'modules/auth/change.js'));
-
-// router.get('/logout', auth, require(__base + 'modules/auth/logout.js'))
+router.get('/logout', protect, require(__base + 'modules/auth/logout.js'))
 
 module.exports = router

@@ -1,5 +1,13 @@
 # Changelog
 
+## Alpha 4
+
+> Completed local authentication APIs.
+
+> Time Logging for user's login and logout.
+
+> change password, forgot password, reset with link.
+
 ## Alpha 3
 
 > Server code rewrite for environment setup.

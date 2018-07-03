@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer');
 const smtpTransport = require('nodemailer-smtp-transport');
 
-const config = require(__base + 'system/config.js');
+const config = require(__base + 'system/config');
 
 // main work is done by this smtpTransport so at new signup the value of to toEmailAddress should be
 // equal to the Users[0].email  you the know the best.

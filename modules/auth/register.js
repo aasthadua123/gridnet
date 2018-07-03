@@ -2,8 +2,7 @@ const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
 const validator = require('validator');
 
-const userModel = require(__base + 'models/user.model.js');
-const config = require(__base + 'system/config.js');
+const userModel = require(__base + 'models/user.js');
 
 // SMS Sender Module
 // const sendSMS = require(__base + 'modules/comm/nexmo.js')
@@ -37,7 +36,7 @@ const register = (req, res) => {
       errors.push('Account already exists.');
     }
     // If no user found then generate the hash.
-    bcrypt.hash(req.body.passEnter, config.settings.salt, (err, passHash) => {
+    bcrypt.hash(req.body.passEnter, req.app.get('salt'), (err, passHash) => {
       if(err) {
         console.log(err);
       }

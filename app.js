@@ -20,6 +20,7 @@ if(global.xe.morgan != undefined) {
 }
 
 app.set('signature', global.xe.sign);
+app.set('salt', global.xe.salt);
 app.set('cbLink', global.xe.cbLink);
 
 if(global.xe.type === "production") {
@@ -45,6 +46,6 @@ if (config.settings.origin.access) {
 }
 
 /* API Routes */
-// app.use('/auth', require('./routes/auth'));
+app.use('/auth', require('./routes/auth'));
 
 module.exports = app;

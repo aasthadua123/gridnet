@@ -11,6 +11,10 @@ const rand = module.exports = (type) => {
     possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     limit = 14;
   }
+  else if (type === "reset") {
+    possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";
+    limit = 22;
+  }
 
   for (var i = 0; i < limit; i++) {
     text.push(possible.charAt(Math.floor(Math.random() * possible.length)));
