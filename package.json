@@ -5,6 +5,7 @@
   "main": "system/server.js",
   "scripts": {
     "start": "node system/server",
+    "setup": "node system/install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
