@@ -22,7 +22,7 @@
 
 > npm start || yarn start
 
-# Build Information
+## Build Information
 
 > Status: Alpha 4
 
