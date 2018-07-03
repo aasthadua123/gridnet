@@ -1,5 +1,9 @@
 # Changelog
 
+## Alpha 4i
+
+> Set up Installation Script for dummy config generation. 
+
 ## Alpha 4
 
 > Completed local authentication APIs.

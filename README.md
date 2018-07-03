@@ -30,8 +30,6 @@
 
 * Set up Email and SMS Logistics.
 
-* Setup Automated Installation Script.
-
 * Set up forgot password.
 
 * Set up oAuth APIs
