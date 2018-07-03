@@ -1,5 +1,17 @@
 # Changelog
 
+## Alpha 3
+
+> Server code rewrite for environment setup.
+
+> App.js code Rewrite for environment setup.
+
+> Concise Config.js Build.
+
+> Selective Cross Origin Script.
+
+> Disabled routes.
+
 ## Alpha 2
 
 > Optimizations for Login .

@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 const jwt = require('jsonwebtoken')
-const config = require(__base + 'system/config.js')
+const config = require(__base + 'system/config')
 
 router.post('/register', require(__base + '/modules/auth/register.js'));
 router.post('/login', require(__base + '/modules/auth/login.js'));

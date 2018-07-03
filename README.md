@@ -4,21 +4,27 @@
 
 > This is a social networking framework designed from the ground-up using node, mongo and the front end is designed in ReactJS.
 
+## How To
+
+> Allowed values for Cross Origin - List / All.
+
 ## Installation and Running
 
 > npm install
 
-> build config.js
+> npm run setup
 
 > npm start
 
 # Build Information
 
-> Status: Alpha 2
+> Status: Alpha 3
 
 > Deployed: No
 
 ## To-do List
+
+* Setup Automated Installation Script.
 
 * Set up forgot password.
 
