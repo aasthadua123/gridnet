@@ -26,7 +26,7 @@
 
 ## Build Information
 
-> Status: Alpha 5.0.1
+> Status: Alpha 5.0.2
 
 ## To-do List
 
@@ -45,6 +45,10 @@
 * Set up Post Logging
 
 ## Changelog
+
+### Alpha 5.0.2
+
+> Initiated Manage Friend System.
 
 ### Alpha 5.0.1
 
