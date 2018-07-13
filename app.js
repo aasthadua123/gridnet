@@ -47,5 +47,7 @@ if (config.settings.origin.access) {
 
 /* API Routes */
 app.use('/auth', require('./routes/auth'));
+// app.use('/actions', require('./routes/actions'));
+// app.use('/profile', (req, res) => { res.send('hi'); });
 
 module.exports = app;

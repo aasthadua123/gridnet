@@ -1,4 +1,3 @@
-const mongoose = require('mongoose');
 const checkDetails = require(__base + 'models/user.js');
 
 const verify = (req, res) => {

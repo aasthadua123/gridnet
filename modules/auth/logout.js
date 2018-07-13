@@ -1,4 +1,3 @@
-const mongoose = require('mongoose');
 const moment = require('moment');
 
 const userModel = require(__base + 'models/user.js');

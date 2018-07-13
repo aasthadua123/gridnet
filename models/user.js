@@ -6,6 +6,10 @@ const schema = mongoose.Schema;
 // 0 -> Account Not Active
 // 1 -> Account is Active
 
+/* Available Levels */
+// 1 -> User
+// 5 -> Admin
+
 const user = new schema({
     "username":{
       "type": String,
