@@ -26,7 +26,7 @@
 
 ## Build Information
 
-> Status: Alpha 5
+> Status: Alpha 5.0.1
 
 ## To-do List
 
@@ -45,6 +45,10 @@
 * Set up Post Logging
 
 ## Changelog
+
+### Alpha 5.0.1
+
+> Added the "Add Friend Module".
 
 ### Alpha 5
 
@@ -141,6 +145,12 @@ POST | /auth/forgot | email | Success/Error Message
 PATCH | /auth/reset/:id | params, password | Success/Error Message
 PATCH | /auth/change-password | oldPassword, newPassword | Success/Error Message
 GET | /auth/logout | header > x-access-token | Success/Error Message
+
+#### Friend Routes
+
+Method | Route Address | Input Parameters | Output JSON
+--- | --- | --- | ---
+GET | /actions/friend/add/:friend_id | params | Success/Error Message
 
 ## Application URL
 

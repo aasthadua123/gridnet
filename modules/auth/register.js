@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const validator = require('validator');
 
+const config = require(__base + 'system/config.json');
 const userModel = require(__base + 'models/user.js');
 
 // SMS Sender Module

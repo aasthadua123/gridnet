@@ -23,6 +23,7 @@ const checkUser = (req, res) => {
             // Check if the user is verified
             if(user.verified.phone || user.verified.email) {
               let data = {
+                "id": user._id,
                 "username":user.username,
                 "email":user.email,
                 "level":user.level
