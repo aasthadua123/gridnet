@@ -6,18 +6,39 @@ const forgot = (req, res) => {
     let email = req.body.email;
 
     checkDetails.findOne({"email":email}, (err, user) => {
-      if (!user) {
-        res.json({ success: false, message: 'User not found.' });
-      }
+      if(err) {
+        res.json({
+          success: false,
+          msg: err.message
+        })
+      } 
       else {
-        checkDetails.findOneAndUpdate({"username": user.username}, {$set:{"code.reset":code}}, (err, doc) => {
-          if(err){console.log(err);}
-
-          // Send Email with the generated link.
-          res.json({ success: true, message: 'Reset link sent.', code: code });
-        });
+        if (!user) {
+          res.json({ 
+            success: false, 
+            msg: 'User not found.' 
+          });
+        } 
+        else {
+          checkDetails.findOneAndUpdate({"username": user.username}, {$set:{"code.reset":code}}, (err, doc) => {
+            if(err){
+              res.json({
+                success: false,
+                msg: err.message
+              });
+            }
+            else {
+              // Send Email with the generated link.
+              res.json({ 
+                success: true, 
+                msg: 'Reset link sent.'
+              });
+            }
+          });
+        }
       }
     });
-}
+  }
+
 
 module.exports = forgot;
