@@ -2,7 +2,7 @@
 
 ## Introduction
 
-> This is a social networking framework designed from the ground-up using node, mongo and the front end is designed in ReactJS.
+> This is a social networking framework designed from the ground-up using node, mongo and the front end is designed in Angular 6.
 
 ## How To
 
@@ -12,127 +12,25 @@
 
 ## Commands
 
-> setup -> Generate the config file. (broken)
-
 > start -> Start the server in development mode. Args can be testing and production.
 
 ## Installation and Running
 
 > npm i
 
-> npm run setup
-
 > npm start
-
-## Build Information
-
-> Status: Alpha 5.1
 
 ## To-do List
 
+* Set Up Feed system for NewsFeed and Profile.
+
 * Set up Email and SMS Logistics.
-
-* Set up forgot password.
-
-* Set up oAuth APIs
 
 * Set up Change Data APIs.
 
 * Set up Link Systems
 
-* Set up friend system
-
 * Set up Post Logging
-
-## Changelog
-
-### Alpha 5.1
-
-> Rewritten Auth Error Handlers.
-
-> Initiated Error Handling Logger (To - Do in future release).
-
-### Alpha 5.0.2
-
-> Initiated Manage Friend System.
-
-### Alpha 5.0.1
-
-> Added the "Add Friend Module".
-
-### Alpha 5
-
-> Finalized models
-
-> Integrated Changelog and README.
-
-> Set up routes for everything.
-
-### Alpha 4i
-
-> Set up Installation Script for dummy config generation.
-
-### Alpha 4
-
-> Completed local authentication APIs.
-
-> Time Logging for user's login and logout.
-
-> change password, forgot password, reset with link.
-
-### Alpha 3
-
-> Server code rewrite for environment setup.
-
-> App.js code Rewrite for environment setup.
-
-> Concise Config.js Build.
-
-> Selective Cross Origin Script.
-
-> Disabled routes.
-
-### Alpha 2
-
-> Optimizations for Login .
-
-> Set up Protect page code.
-
-> Set up To do for oauth.
-
-> Set up Change Password but needs to be fixed.
-
-### Alpha 1
-
-> Created verification routes and login route APIs.
-
-> Set up dynamic routes for verification
-
-> Alpha bug fixes.
-
-### Registration Setup
-
-> Created the Registration API.
-
-> Created the Rand Generation Module.
-
-> Set up for Email Sender Module using Nodemailer.
-
-### Model Setup
-
-> Add models for user, profile, posts, requests
-
-> Setup Routing for APIs.
-
-> Setup Server.
-
-### Initial Setup
-
-> Setup License.
-
-> Setup Readme.
-
-> Initialize Project.
 
 ## Routes
 
@@ -161,6 +59,7 @@ GET | /auth/logout | header > x-access-token | Success/Error Message
 Method | Route Address | Input Parameters | Output JSON
 --- | --- | --- | ---
 GET | /actions/friend/add/:friend_id | params | Success/Error Message
+GET | /actions/friend/manage/:type/:id | params | Success/Error Message
 
 ## Application URL
 

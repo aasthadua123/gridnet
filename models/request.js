@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 
 /* Available Statuses */
-// -1 -> Blocled
+// -1 -> Blocked
 // 0 -> Pending
 // 1 -> Accepted
 // 2 -> Deleted

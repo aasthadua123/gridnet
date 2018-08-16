@@ -1,7 +1,4 @@
-const moment = require('moment');
-
 const requestModel = require(__base + 'models/request');
-const userModel = require(__base + 'models/user');
 
 const errorHandler = (err, res) => {
   res.json({
@@ -14,19 +11,111 @@ const errorHandler = (err, res) => {
 const manageFriend = (req, res) => {
   let type = req.params.type;
   let friend = req.params.id;
-  switch(type) {
+  let user = req.info.id;
+
+  const acceptRequest = (id) => {
+    requestModel.findOneAndUpdate(
+      { $and: [{ "requester": id }, { "recipient": user }] },
+      { $set: { "status": 1 } }, (err, result) => {
+        if (err) {
+          errorHandler(err, res);
+        }
+        else {
+          if (result) {
+            res.json({
+              success: true,
+              msg: "Accepted."
+            });
+          }
+          else {
+            res.json({
+              success: false,
+              msg: "There is some error !"
+            });
+          }
+        }
+      });
+  }
+
+  const deleteRequest = (id) => {
+    requestModel.findOneAndUpdate({ $and: [{ "requester": id }, { "recipient": user }] }, { $set: { "status": 2 } }, (err, result) => {
+      if (err) {
+        errorHandler(err, res);
+      }
+      else {
+        if (result) {
+          res.json({
+            success: true,
+            msg: "Deleted."
+          });
+        }
+        else {
+          res.json({
+            success: false,
+            msg: "There is some error !"
+          });
+        }
+      }
+    });
+  }
+
+  const unfriendFriend = (id) => {
+    requestModel.findOneAndRemove({ $and: [{ "requester": id }, { "recipient": user }] }, (err, result) => {
+      if (err) {
+        errorHandler(err, res);
+      }
+      else {
+        if (result) {
+          res.json({
+            success: true,
+            msg: "Unfriended."
+          });
+        }
+        else {
+          res.json({
+            success: false,
+            msg: "There is some error !"
+          });
+        }
+      }
+    });
+  }
+
+  const blockPerson = (id) => {
+    requestModel.findOneAndUpdate({ $and: [{ "requester": id }, { "recipient": user }] }, { $set: { "status": -1 } }, (err, result) => {
+      if (err) {
+        errorHandler(err, res);
+      }
+      else {
+        if (result) {
+          res.json({
+            success: true,
+            msg: "Blocked."
+          });
+        }
+        else {
+          res.json({
+            success: false,
+            msg: "There is some error !"
+          });
+        }
+      }
+    });
+  }
+
+  switch (type) {
     case 'delete':
-    deleteRequest(friend);
-    break;
+      deleteRequest(friend);
+      break;
     case 'accept':
-    acceptRequest(friend);
-    break;
+      acceptRequest(friend);
+      break;
     case 'unfriend':
-    unfriendFriend(friend);
-    break;
+      unfriendFriend(friend);
+      break;
     case 'block':
-    blockPerson(friend);
-    break;
+      blockPerson(friend);
+      break;
     default:
       res.json({
         "success": false,
@@ -34,21 +123,7 @@ const manageFriend = (req, res) => {
       });
       break;
   }
-  const acceptRequest = (id) => {
-    res.send('Accept'+id);
-  }
 
-  const deleteRequest = (id) => {
-    res.send('Delete'+id);
-  }
-
-  const unfriendFriend = (id) => {
-    res.send('Unfriend'+id)
-  }
-
-  const blockPerson = (id) => {
-    res.send('Block'+id);
-  }
 }
 
 module.exports = manageFriend;

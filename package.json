@@ -1,6 +1,6 @@
 {
   "name": "gridnet",
-  "version": "1.0.0",
+  "version": "1.0.6",
   "description": "A social network framework.",
   "main": "system/server.js",
   "scripts": {
@@ -17,7 +17,7 @@
     "Site",
     "Framework",
     "Node",
-    "ReactJS",
+    "Angular",
     "Mongo"
   ],
   "author": "Aaditya Chakravarty",
