@@ -49,4 +49,10 @@ if (config.settings.origin.access) {
 app.use('/auth', require('./routes/auth'));
 app.use('/actions', require('./routes/actions'));
 
+/* Angular Application Root */
+app.use(express.static(__dirname + '/dist'));
+app.use((req, res) => {
+    res.sendFile(__dirname + '/dist/index.html')
+});
+
 module.exports = app;

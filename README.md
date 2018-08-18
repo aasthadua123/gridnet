@@ -8,9 +8,19 @@
 
 > start | Possible args : "testing", "development" (default), "production"
 
+## Requirements
+
+> Node > v4.
+
+> NPM 
+
+> Angular CLI.
+
 ## Installation and Running
 
 > npm i
+
+> ng build
 
 > npm start
 
@@ -20,7 +30,7 @@
 
 * Design a real-time chat setup.
 
-* Design and Integrate front end.
+* Design front end.
 
 ## Routes
 

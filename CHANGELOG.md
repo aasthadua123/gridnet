@@ -1,5 +1,9 @@
 # Changelog
 
+## Beta 1_1
+
+> Initialized and Integrated front-end Angular setup.
+
 ## Beta 1
 
 > Completed Profile.
