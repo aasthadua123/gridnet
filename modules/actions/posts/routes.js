@@ -4,8 +4,11 @@ const protect = require(__base + 'modules/auth/protect.js');
 
 router.post('/add', protect, require('./addPost'));
 
-router.get('/like', protect, require('./votePost').likePost);
-router.get('/dislike', protect, require('./votePost').dislikePost);
-router.post('/add-comment', protect, require('./votePost').commentPost);
+router.get('/like/:id', protect, require('./votePost').likePost);
+router.get('/unlike/:id', protect, require('./votePost').dislikePost);
+router.get('/dislike/:id', protect, require('./votePost').dislikePost);
+
+router.post('/add-comment/:id', protect, require('./votePost').commentPost);
+router.get('/remove-comment/:postid/:commentid', protect, require('./votePost').commentRemove);
 
 module.exports = router;

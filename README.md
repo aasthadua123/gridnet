@@ -2,11 +2,11 @@
 
 ## Introduction
 
-> This is a social networking framework designed from the ground-up using node, mongo and the front end is designed in Angular 6.
+> This is a social networking setup designed from scratch using node for processing, mongo for the database, middleware http handling with expressJS and the front end is designed with bootstrap in Angular 6.
 
 ## Commands
 
-> start -> Start the server in development mode. Args can be testing and production.
+> start | Possible args : "testing", "development" (default), "production"
 
 ## Installation and Running
 
@@ -16,31 +16,23 @@
 
 ## To-do List
 
-* Set up login for like/ dislike and comment system.
+* Configure an SMS provider.
 
-* Set Up Feed system for Profile.
+* Design a real-time chat setup.
 
-* Set up Email and SMS Logistics.
-
-* Set up Link Systems
+* Design and Integrate front end.
 
 ## Routes
-
-#### Welcome Route
-
-Method | Route Address | Input Parameters | Output JSON
---- | --- | --- | ---
-GET | / | None | Welcome Message
 
 #### Authentication Routes
 
 Method | Route Address | Input Parameters | Output JSON
 --- | --- | --- | ---
-POST | /auth/register | username, email, phone, passEnter, passConfirm | Success/Error Message
+POST | /auth/register | name, username, email, phone, passEnter, passConfirm | Success/Error Message
 POST | /auth/login | username, password | Success/Error Message
 GET | /auth/status | header > x-access-token | Success/Error Message
-POST | /auth/verify/:type/:username | params, otp | Success/Error Message
-GET | /auth/verify/:type/:username/:code | params | Success/Error Message
+POST | /auth/verify/phone/:username | params, otp | Success/Error Message
+GET | /auth/verify/email/:username/:code | params | Success/Error Message
 POST | /auth/forgot | email | Success/Error Message
 PATCH | /auth/reset/:id | params, password | Success/Error Message
 PATCH | /auth/change-password | oldPassword, newPassword | Success/Error Message
@@ -53,17 +45,40 @@ Method | Route Address | Input Parameters | Output JSON
 GET | /actions/friend/add/:friend_id | params | Success/Error Message
 GET | /actions/friend/manage/:type/:id | params | Success/Error Message
 
-#### Post Routes
+#### Newsfeed and Profile Routes
 
 Method | Route Address | Input Parameters | Output JSON
 --- | --- | --- | ---
 GET | /actions/feed/fetch | token | Feed Posts
+GET | /actions/feed/profile/:id | token | Full User Profile
 
-#### Feed Routes
+#### Post Routes
 Method | Route Address | Input Parameters | Output JSON
 --- | --- | --- | ---
 POST | /actions/post/add | x-access-token, content, status? | Success/Error Message
+GET | /actions/post/like/:id | x-access-token | Success/Error Message
+GET | /actions/post/unlike/:id | x-access-token | Success/Error Message
+GET | /actions/post/dislike/:id | x-access-token | Success/Error Message
+POST | /actions/post/add-comment/:id | x-access-token, content | Success/Error Message
+GET | /actions/post/remove-comment/:postid/:commentid | x-access-token | Success/Error Message
 
+## Future Extensions
+
+> Enable the SMS feature.
+
+> Privacy Settings for posts.
+
+> Replies to comments.
+
+> Group chats.
+
+## Technical Extras
+
+> May shift to express 5 (Rewrite in TS).
+
+> Set Up babel and webpack for the above.
+
+> Write autommated test cases, if required.
 
 ## Application URL
 

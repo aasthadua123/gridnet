@@ -20,7 +20,7 @@ const post = new schema({
     "id": mongoose.Schema.Types.ObjectId
   }],
   "comments": [{
-    "id": mongoose.Schema.Types.ObjectId,
+    "commenter": mongoose.Schema.Types.ObjectId,
     "content": String,
     "name": String
   }],

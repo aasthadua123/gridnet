@@ -1,5 +1,23 @@
 # Changelog
 
+## Beta 1
+
+> Completed Profile.
+
+> Completed Post Handlers ( like, unlike, comment, uncomment, dislike).
+
+> Enabled Email Handling.
+
+> Ready for deployment.
+
+> Finalized and Cleaned Config.
+
+> Cleaned and Optimized auth for Profile Handling.
+
+> Actual Profile Handling.
+
+> Incorporated Friend System with everything else.
+
 ## Alpha 7
 
 > Completed NewsFeed.

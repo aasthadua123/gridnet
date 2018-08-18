@@ -9,29 +9,28 @@ const errorHandler = (err, res) => {
     });
 }
 
-const poster = (req, res) => {
-    profileModel.findOne({ userid: req.info.id }, (err, profile) => {
+const fetcher = (req, res) => {
+    profileModel.findOne({ userid: req.params.id }, (err, profile) => {
         if (err) { errorHandler(err, res); }
         else {
-            let friends = profile.friends.map((f) => f.id);
-            friends.push(profile.userid);
-            postModel.find({ "author.id": { $in: friends } }).sort({ timestamp: 'descending' }).exec((err, posts) => {
+            postModel.find({ "author.id": req.params.id }).sort({ timestamp: 'descending' }).exec((err, posts) => {
                 if (err) { errorHandler(err, res); }
                 else {
                     posts = posts.map((p) => {
                         return {
                             "postid": p._id,
-                            "author": p.author.name,
-                            "owner": p.author.id,
                             "content": p.content,
                             "timestamp": p.timestamp,
                             "likes": p.likes.length,
                             "dislikes": p.dislikes.length,
-                            "comments": p.comments,
+                            "comments": p.comments.length,
                         }
                     });
                     res.json({
                         success: true,
+                        id: profile._id,
+                        name: profile.name,
+                        friends: profile.friends.length,
                         feed: posts
                     })
                 }
@@ -40,4 +39,4 @@ const poster = (req, res) => {
     });
 }
 
-module.exports = poster;
+module.exports = fetcher;

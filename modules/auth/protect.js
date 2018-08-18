@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const userModel = require(__base + 'models/user.js');
+const profileModel = require(__base + 'models/profile.js');
 
 // const oauthModel = require(__base + 'models/oauth.js');
 
@@ -37,8 +38,19 @@ const protect = (req, res, next) => {
 								});
 							} else {
 								// if everything is good, save to request for use in other routes
-								req.info = info;
-								next();
+								profileModel.findOne({ userid: user._id }, (err, doc) => {
+									if (err) {
+										res.json({
+											success: false,
+											msg: err.message
+										});
+									}
+									else {
+										req.info = info;
+										req.info.name = doc.name;
+										next();
+									}
+								});
 							}
 						}
 					});

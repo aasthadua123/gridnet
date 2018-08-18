@@ -102,10 +102,10 @@ const register = (req, res) => {
                     }
                     if (config.settings.verification.email) {
                       // If emails are enabled in the configuration then send confirmation email.
-                      // let subject = "Account activation for Gridnet.";
-                      // let link = config.settings.server.protocol + "://" + config.settings.server.host + "/auth/verify/email/" + req.body.username + '/' + otp_em;
-                      // let message = "Thank you for registering on Gridnet. \n Please click on the following link to activate your account. \n " + link;
-                      // sendEmail(req.body.email, subject, message);
+                      let subject = "Gridnet Verification";
+                      let link = config.settings.server.protocol + "://" + config.settings.server.host + "/auth/verify/email/" + req.body.username + '/' + otp_em;
+                      let message = "Thank you for registering on Gridnet. \n Please click on the following link to activate your account. \n " + link;
+                      sendEmail(req.body.email, subject, message);
                     }
                     res.json({
                       success: true,

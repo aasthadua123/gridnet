@@ -1,11 +1,10 @@
 {
   "name": "gridnet",
-  "version": "1.0.7",
+  "version": "1.1.0",
   "description": "A social network framework.",
   "main": "system/server.js",
   "scripts": {
-    "start": "node system/server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node system/server"
   },
   "repository": {
     "type": "git",
@@ -43,8 +42,5 @@
     "passport-google-oauth20": "^1.0.0",
     "socketio": "^1.0.0",
     "validator": "^10.3.0"
-  },
-  "devDependencies": {
-    "mocha": "^5.2.0"
   }
 }

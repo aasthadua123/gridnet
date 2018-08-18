@@ -17,6 +17,7 @@ const profile = new schema({
   },
   "friends": [{
     "id": mongoose.Schema.Types.ObjectId,
+    "name": String,
     "since": Date,
     "relation": {
       "type": Number,
