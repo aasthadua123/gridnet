@@ -7,16 +7,17 @@ const schema = mongoose.Schema;
 // 2 -> Privately Visible
 
 const post = new schema({
-  "author": String,
+  "author": {
+    id: mongoose.Schema.Types.ObjectId,
+    name: String
+  },
   "content": String,
   "timestamp": Date,
   "likes": [{
-    "id": mongoose.Schema.Types.ObjectId,
-    "name": String
+    "id": mongoose.Schema.Types.ObjectId
   }],
   "dislikes": [{
-    "id": mongoose.Schema.Types.ObjectId,
-    "name": String
+    "id": mongoose.Schema.Types.ObjectId
   }],
   "comments": [{
     "id": mongoose.Schema.Types.ObjectId,

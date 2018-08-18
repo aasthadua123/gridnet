@@ -1,5 +1,11 @@
 # Changelog
 
+## Alpha 7
+
+> Completed NewsFeed.
+
+> Completed Friend List.
+
 ## Alpha 6
 
 > Completed Friend System.

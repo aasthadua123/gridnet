@@ -1,6 +1,7 @@
 const moment = require('moment');
 
 const postModel = require(__base + 'models/posts');
+const profileModel = require(__base + 'models/profile');
 
 const errorHandler = (err, res) => {
     res.json({
@@ -11,17 +12,26 @@ const errorHandler = (err, res) => {
 }
 
 const poster = (req, res) => {
-    let post = new postModel({
-        "author": req.info.id,
-        "content": req.body.content,
-        "timestamp": moment()
-    });
-    post.save((err, data) => {
+    profileModel.findOne({ userid: req.info.id }, (err, profile) => {
         if (err) { errorHandler(err, res); }
         else {
-            res.json({
-                "success": true,
-                "msg": "Post Saved !"
+            let post = new postModel({
+                "author": {
+                    id: req.info.id,
+                    name: profile.name
+                },
+                "content": req.body.content,
+                "status": req.body.status,
+                "timestamp": moment()
+            });
+            post.save((err, data) => {
+                if (err) { errorHandler(err, res); }
+                else {
+                    res.json({
+                        "success": true,
+                        "msg": "Post Saved !"
+                    });
+                }
             });
         }
     });

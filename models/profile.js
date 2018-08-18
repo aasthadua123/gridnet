@@ -7,25 +7,26 @@ const schema = mongoose.Schema;
 // 2 -> User Deactivated
 
 const profile = new schema({
-    "fullname":{
-      "type": String,
-      "required": true
-    },
-    "country": {
-      "name": String,
-      "code": String
-    },
-    "friends": [{
-      "id": mongoose.Schema.Types.ObjectId,
-      "since": Date,
-      "relation": {
-        "default": "Friend"
-      }
-    }],
-    "status": {
+  "userid": mongoose.Schema.Types.ObjectId,
+  "name": {
+    "type": String
+  },
+  "country": {
+    "name": String,
+    "code": String
+  },
+  "friends": [{
+    "id": mongoose.Schema.Types.ObjectId,
+    "since": Date,
+    "relation": {
       "type": Number,
-      "default": 0
+      "default": 1
     }
+  }],
+  "status": {
+    "type": Number,
+    "default": 0
+  }
 });
 
 module.exports = mongoose.model('profile', profile);

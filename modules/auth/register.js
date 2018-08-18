@@ -3,6 +3,7 @@ const validator = require('validator');
 
 const config = require(__base + 'system/config.json');
 const userModel = require(__base + 'models/user.js');
+const profileModel = require(__base + 'models/profile.js');
 
 // SMS Sender Module
 // const sendSMS = require(__base + 'modules/comm/nexmo.js')
@@ -81,20 +82,36 @@ const register = (req, res) => {
                   msg: err.message
                 });
               } else {
-                /* Person verification */
-                if (config.settings.verification.sms) {
-                  // sendSMS(compNum, message);
-                }
-                if (config.settings.verification.email) {
-                  // If emails are enabled in the configuration then send confirmation email.
-                  let subject = "Account activation for Gridnet.";
-                  let link = config.settings.server.protocol + "://" + config.settings.server.host + "/auth/verify/email/" + req.body.username + '/' + otp_em;
-                  let message = "Thank you for registering on Gridnet. \n Please click on the following link to activate your account. \n " + link;
-                  // sendEmail(req.body.email, subject, message);
-                }
-                res.json({
-                  success: true,
-                  msg: 'Registration Successful.'
+                /* Profile Initialization */
+                let blankProf = new profileModel({
+                  "userid": data._id,
+                  "name": req.body.name,
+                  "friends": []
+                })
+                blankProf.save((err, data) => {
+                  if (err) {
+                    res.json({
+                      success: false,
+                      msg: err.message
+                    });
+                  }
+                  else {
+                    /* Person verification */
+                    if (config.settings.verification.sms) {
+                      // sendSMS(compNum, message);
+                    }
+                    if (config.settings.verification.email) {
+                      // If emails are enabled in the configuration then send confirmation email.
+                      // let subject = "Account activation for Gridnet.";
+                      // let link = config.settings.server.protocol + "://" + config.settings.server.host + "/auth/verify/email/" + req.body.username + '/' + otp_em;
+                      // let message = "Thank you for registering on Gridnet. \n Please click on the following link to activate your account. \n " + link;
+                      // sendEmail(req.body.email, subject, message);
+                    }
+                    res.json({
+                      success: true,
+                      msg: 'Registration Successful.'
+                    });
+                  }
                 });
               }
             });

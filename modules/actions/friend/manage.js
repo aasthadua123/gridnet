@@ -1,4 +1,7 @@
+const moment = require('moment');
+
 const requestModel = require(__base + 'models/request');
+const profileModel = require(__base + 'models/profile');
 
 const errorHandler = (err, res) => {
   res.json({
@@ -22,9 +25,31 @@ const manageFriend = (req, res) => {
         }
         else {
           if (result) {
-            res.json({
-              success: true,
-              msg: "Accepted."
+            let fr = (id) => {
+              return {
+                "id": id,
+                "since": moment(),
+                "relation": 1
+              }
+            };
+
+            profileModel.findOneAndUpdate({ userid: user }, { $push: { friends: fr(friend) } }, (err, result) => {
+              if (err) {
+                errorHandler(err, res);
+              }
+              else {
+                profileModel.findOneAndUpdate({ userid: friend }, { $push: { friends: fr(user) } }, (err, result) => {
+                  if (err) {
+                    errorHandler(err, res);
+                  }
+                  else {
+                    res.json({
+                      success: true,
+                      msg: "Accepted."
+                    });
+                  }
+                });
+              }
             });
           }
           else {
@@ -66,9 +91,23 @@ const manageFriend = (req, res) => {
       }
       else {
         if (result) {
-          res.json({
-            success: true,
-            msg: "Unfriended."
+          profileModel.findOneAndUpdate({ userid: user }, { $pull: { "friends": { "id": friend } } }, (err, result) => {
+            if (err) {
+              errorHandler(err, res);
+            }
+            else {
+              profileModel.findOneAndUpdate({ userid: friend }, { $pull: { "friends": { "id": user } } }, (err, result) => {
+                if (err) {
+                  errorHandler(err, res);
+                }
+                else {
+                  res.json({
+                    success: true,
+                    msg: "Unfriended."
+                  });
+                }
+              });
+            }
           });
         }
         else {

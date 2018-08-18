@@ -4,12 +4,6 @@
 
 > This is a social networking framework designed from the ground-up using node, mongo and the front end is designed in Angular 6.
 
-## How To
-
-> Allowed values for Cross Origin - List / All.
-
-> Set up a database.
-
 ## Commands
 
 > start -> Start the server in development mode. Args can be testing and production.
@@ -22,15 +16,13 @@
 
 ## To-do List
 
-* Set Up Feed system for NewsFeed and Profile.
+* Set up login for like/ dislike and comment system.
+
+* Set Up Feed system for Profile.
 
 * Set up Email and SMS Logistics.
 
-* Set up Change Data APIs.
-
 * Set up Link Systems
-
-* Set up Post Logging
 
 ## Routes
 
@@ -60,6 +52,18 @@ Method | Route Address | Input Parameters | Output JSON
 --- | --- | --- | ---
 GET | /actions/friend/add/:friend_id | params | Success/Error Message
 GET | /actions/friend/manage/:type/:id | params | Success/Error Message
+
+#### Post Routes
+
+Method | Route Address | Input Parameters | Output JSON
+--- | --- | --- | ---
+GET | /actions/feed/fetch | token | Feed Posts
+
+#### Feed Routes
+Method | Route Address | Input Parameters | Output JSON
+--- | --- | --- | ---
+POST | /actions/post/add | x-access-token, content, status? | Success/Error Message
+
 
 ## Application URL
 
