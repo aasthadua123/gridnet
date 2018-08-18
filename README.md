@@ -1,7 +1,6 @@
 # Gridnet
 
----
-[Changeog](./CHANGELOG.md)
+[Changelog](./CHANGELOG.md)
 [Routes](./ROUTES.md)
 ---
 
