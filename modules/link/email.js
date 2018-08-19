@@ -16,7 +16,7 @@ const transport = nodemailer.createTransport(smtpTransport({
 
 const sendEMail = (address, subject, message) => {
   let mail = {
-    from: mailAccountUser,
+    from: config.details.mail.user,
     to: address,
     subject: subject,
     text: message

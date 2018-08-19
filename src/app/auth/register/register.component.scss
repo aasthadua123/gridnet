@@ -1,16 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
-::ng-deep body {
-    background: #306C89; /* fallback for old browsers */
-    background: -webkit-linear-gradient(left,#005bea, #00c6fb);
-    background: -moz-linear-gradient(left, #005bea, #00c6fb);
-    background: -o-linear-gradient(left, #005bea, #00c6fb);
-    background: linear-gradient(to right, #005bea, #00c6fb);
-    font-family: "Roboto", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;       
-  }
-
 .login-page {
   width: 360px;
   padding: 8% 0 0;
@@ -51,6 +40,12 @@
   transition: all 0.5s ease;
   cursor: pointer;
 }
+
+.form button:disabled {
+  background: grey;
+  pointer-events: none;
+}
+
 .form button:hover,.form button:active,.form button:focus {
   background: #00A4F3;
 }

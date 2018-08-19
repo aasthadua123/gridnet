@@ -25,8 +25,8 @@ const poster = (req, res) => {
                             "owner": p.author.id,
                             "content": p.content,
                             "timestamp": p.timestamp,
-                            "likes": p.likes.length,
-                            "dislikes": p.dislikes.length,
+                            "likes": p.likes,
+                            "dislikes": p.dislikes,
                             "comments": p.comments,
                         }
                     });

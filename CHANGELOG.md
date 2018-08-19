@@ -1,5 +1,19 @@
 # Changelog
 
+## UI Alpha 2
+
+> Completed Auth Pages.
+
+> Completed Splash Screen.
+
+> Completed Entry Dashboard with Feed.
+
+> Set up Accept Friend System.
+
+> Added requests fetch function.
+
+> Done with Auth.
+
 ## UI Alpha 1
 
 > Initialized and Set up Routing, 404, Auth routes and Splash.

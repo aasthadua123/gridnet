@@ -1,2 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body {
+    background: #306C89; /* fallback for old browsers */
+    background: -webkit-linear-gradient(left,#005bea, #00c6fb);
+    background: -moz-linear-gradient(left, #005bea, #00c6fb);
+    background: -o-linear-gradient(left, #005bea, #00c6fb);
+    background: linear-gradient(to right, #005bea, #00c6fb);
+    font-family: "Roboto", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    width:100vw;
+    height: 100vh;
+  }

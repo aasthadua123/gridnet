@@ -30,11 +30,13 @@
 
 ## To-do List
 
+* Deploy Application.
+
+* Check Registration redirect.
+
 * Configure an SMS provider.
 
-* Design a real-time chat setup.
-
-* Design front end.
+* Verification Pages
 
 ## Future Extensions
 
@@ -44,7 +46,7 @@
 
 > Replies to comments.
 
-> Group chats.
+> Chats.
 
 ## Technical Extras
 

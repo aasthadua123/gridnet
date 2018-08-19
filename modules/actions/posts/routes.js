@@ -5,7 +5,7 @@ const protect = require(__base + 'modules/auth/protect.js');
 router.post('/add', protect, require('./addPost'));
 
 router.get('/like/:id', protect, require('./votePost').likePost);
-router.get('/unlike/:id', protect, require('./votePost').dislikePost);
+router.get('/unlike/:id', protect, require('./votePost').unlikePost);
 router.get('/dislike/:id', protect, require('./votePost').dislikePost);
 
 router.post('/add-comment/:id', protect, require('./votePost').commentPost);

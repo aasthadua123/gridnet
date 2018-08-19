@@ -1,3 +1,90 @@
-<p>
-  dashboard works!
-</p>
+<nav class="navbar navbar-dark bg-primary">
+  <a class="navbar-brand">Gridnet</a>
+  <ul class="nav">
+    <li class="nav-item">
+      <button type="button" (click)="logout()" class="btn btn-secondary">Logout</button>
+    </li>
+  </ul>
+</nav>
+
+<div class="container-fluid text-center">
+  <div class="row content">
+    <div class="col-sm-2 sidenav text-left" style="position: fixed; left: 0;height: calc(100vh - 56px)">
+      <p>
+        <button (click)="refreshFeed()" class="btn btn-block btn-primary">
+          <i class="fa fa-newspaper-o"></i> Newsfeed</button>
+        <button routerLink="/profile" class="btn btn-block btn-primary">
+          <i class="fa fa-user"></i> Profile</button>
+      </p>
+    </div>
+    <div class="col-sm-6 offset-sm-2 text-left" style="height: calc(100vh - 56px); overflow-y: auto;">
+      <div class="card" style="width: 100%; margin-top: 10px;">
+        <div class="card-body">
+          <form [formGroup]="newPost" (ngSubmit)="submitPost()">
+            <textarea formControlName="content" class="form-control" style="resize: none" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <button type="submit" class="btn btn-primary" style="margin-top: 5px; float: right; margin-right: 5px;">
+              <i class="fa fa-paper-plane"></i> Submit</button>
+          </form>
+        </div>
+      </div>
+      <div class="card" *ngIf="feed?.length == 0">
+        <div class="card-body text-left">
+          No Posts found, Make some friends to make posts appear.
+        </div>
+      </div>
+      <div class="card" *ngFor="let post of feed" style="width: 100%; margin-top: 10px;">
+        <div class="card-body">
+          <h4 class="card-title">
+            <i class="fa fa-user" style="border: 1px solid #000; padding:10px 14px; border-radius: 50%;"></i> {{post.author}}</h4>
+          <p class="card-subtitle mb-2 text-muted">Posted on {{post.timestamp | date:'short'}}</p>
+          <p class="card-text">{{post.content}}</p>
+          <div *ngIf="checkVote('like', post) else noLike" style="display:inline;">
+            <button (click)="votePost('like', post)" class="btn btn-primary" style="margin-right: 5px;">
+              <i class="fa fa-thumbs-up"></i> {{post.likes.length}}</button>
+          </div>
+          <ng-template #noLike>
+            <button (click)="votePost('like', post)" class="btn btn-outline-primary" style="margin-right: 5px;">
+              <i class="fa fa-thumbs-up"></i> {{post.likes.length}}</button>
+          </ng-template>
+
+          <div *ngIf="checkVote('dislike', post) else nodisLike" style="display:inline;">
+            <button (click)="votePost('dislike', post);" class="btn btn-danger" style="margin-right: 5px;">
+              <i class="fa fa-thumbs-down"></i> {{post.dislikes.length}}</button>
+          </div>
+          <ng-template #nodisLike>
+            <button (click)="votePost('dislike', post);" class="btn btn-outline-danger" style="margin-right: 5px;">
+              <i class="fa fa-thumbs-down"></i> {{post.dislikes.length}}</button>
+          </ng-template>
+
+          <button class="btn btn-outline-dark">
+            <i class="fa fa-comment"></i> {{post.comments.length}} Comments</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-2 sidenav" style="overflow-y: auto; height: calc(100vh - 56px);border-right: 1px solid rgba(0, 0, 0, 0.1)">
+      Friend Requests
+      <hr>
+      <div class="card" *ngIf="requests?.length == 0">
+        <div class="card-body text-left">
+          No Requests found !
+        </div>
+      </div>
+      <div class="card" *ngFor="let req of requests">
+        <div class="card-body text-left">
+          <i class="fa fa-user" style="border: 1px solid #000; padding:10px 13px; border-radius: 50%;"></i> {{req.name}}<br>
+          <div style="float:left; display:block; margin-top: 5px;">
+            <button (click)="handleRequest('accept', req.id)" style="margin-right: 5px;" class="btn btn-sm btn-outline-success">
+              <i class="fa fa-check"></i>
+            </button>
+            <button (click)="handleRequest('remove', req.id)" class="btn btn-sm btn-outline-warning">
+              <i class="fa fa-times"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-2 sidenav fixed-right" style="height: calc(100vh - 56px)">
+      <!-- Sidebar to-do in case of adding chat. -->
+    </div>
+  </div>
+</div>

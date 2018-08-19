@@ -1,13 +1,13 @@
 <div class="login-page">
   <div class="form">
-    <form class="register-form">
-      <input type="text" placeholder="Your Name" />
-      <input type="text" placeholder="Username" />
-      <input type="text" placeholder="Email Address" />
-      <input type="number" placeholder="Phone Number" />
-      <input type="password" placeholder="Enter Password" />
-      <input type="password" placeholder="Confirm Password" />
-      <button>create</button>
+    <form [formGroup]="registerForm" (ngSubmit)="submitUser()" class="register-form">
+      <input formControlName="name" type="text" placeholder="Your Name" />
+      <input formControlName="username" type="text" placeholder="Username" />
+      <input formControlName="email" type="text" placeholder="Email Address" />
+      <input formControlName="phone" type="text" pattern="\d*" maxlength="10" placeholder="Phone Number" />
+      <input formControlName="passEnter" type="password" placeholder="Enter Password" />
+      <input formControlName="passConfirm" type="password" placeholder="Confirm Password" />
+      <button [disabled]="!registerForm.valid">create</button>
       <p class="message">Already registered?
         <a routerLink="/auth/login">Sign In</a>
       </p>

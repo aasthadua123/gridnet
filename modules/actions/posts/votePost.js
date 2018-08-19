@@ -50,8 +50,7 @@ exports.unlikePost = (req, res) => {
     postModel.findOneAndUpdate(
         { _id: req.params.id },
         {
-            $pull: { likes: { id: req.info.id } },
-            $pull: { dislikes: { id: req.info.id } }
+            $pull: { likes: { id: req.info.id }, dislikes: { id: req.info.id } }
         },
         (err, doc) => {
             if (err) { errorHandler(err, res); }

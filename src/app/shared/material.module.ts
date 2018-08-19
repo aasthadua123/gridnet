@@ -26,7 +26,8 @@ import {
   MatSidenavModule,
   MatStepperModule,
   MatTabsModule,
-  MatDividerModule
+  MatDividerModule,
+  MatSnackBarModule
 } from '@angular/material';
 
 @NgModule({
@@ -38,6 +39,7 @@ import {
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSnackBarModule,
     MatSelectModule,
     MatSlideToggleModule,
     MatDatepickerModule,
@@ -74,6 +76,7 @@ import {
     MatNativeDateModule,
     MatDialogModule,
     MatChipsModule,
+    MatSnackBarModule,
     MatTableModule,
     MatPaginatorModule,
     MatExpansionModule,

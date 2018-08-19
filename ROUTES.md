@@ -20,6 +20,7 @@ Method | Route Address | Input Parameters | Output JSON
 --- | --- | --- | ---
 GET | /actions/friend/add/:friend_id | params | Success/Error Message
 GET | /actions/friend/manage/:type/:id | params | Success/Error Message
+GET | /actions/friend/fetch | token | Success/Error Message
 
 #### Newsfeed and Profile Routes
 
