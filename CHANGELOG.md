@@ -1,5 +1,9 @@
 # Changelog
 
+## UI Alpha 1
+
+> Initialized and Set up Routing, 404, Auth routes and Splash.
+
 ## Beta 1_1
 
 > Initialized and Integrated front-end Angular setup.
