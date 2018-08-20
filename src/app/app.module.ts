@@ -9,12 +9,14 @@ import { AppComponent } from './app.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SplashComponent } from './splash/splash.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProfileComponent } from './profile/profile.component';
 
 
 const appRoutes: Routes = [
   { path: '', pathMatch: 'full', component: SplashComponent },
   { path: 'auth', loadChildren: './auth/auth.module#AuthModule' },
   { path: 'home', loadChildren: './dashboard/dashboard.module#DashboardModule' },
+  { path: 'profile/:id', component: ProfileComponent},
   { path: '**', component: NotFoundComponent }
 ];
 
@@ -22,7 +24,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     NotFoundComponent,
-    SplashComponent
+    SplashComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

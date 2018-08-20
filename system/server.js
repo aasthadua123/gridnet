@@ -58,7 +58,7 @@ const server = http.createServer(app);
 // Mongo Connection
 mongoose.connect(db, (err) => {
     if (!err) { console.log('Database Connected.');}
-    else { console.log(err); }
+    else { console.log(err.message); }
 });
 
 // Core Server Setup

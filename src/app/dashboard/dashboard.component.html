@@ -35,7 +35,7 @@
       <div class="card" *ngFor="let post of feed" style="width: 100%; margin-top: 10px;">
         <div class="card-body">
           <h4 class="card-title">
-            <i class="fa fa-user" style="border: 1px solid #000; padding:10px 14px; border-radius: 50%;"></i> {{post.author}}</h4>
+            <i class="fa fa-user" style="border: 1px solid #000; padding:10px 14px; border-radius: 50%;"></i> <a routerLink="/profile/{{post.owner}}"> {{post.author}}</a></h4>
           <p class="card-subtitle mb-2 text-muted">Posted on {{post.timestamp | date:'short'}}</p>
           <p class="card-text">{{post.content}}</p>
           <div *ngIf="checkVote('like', post) else noLike" style="display:inline;">
@@ -71,7 +71,7 @@
       </div>
       <div class="card" *ngFor="let req of requests">
         <div class="card-body text-left">
-          <i class="fa fa-user" style="border: 1px solid #000; padding:10px 13px; border-radius: 50%;"></i> {{req.name}}<br>
+          <i class="fa fa-user" style="border: 1px solid #000; padding:10px 13px; border-radius: 50%;"></i> <a routerLink="/profile/{{req.id}}">{{req.name}}</a><br>
           <div style="float:left; display:block; margin-top: 5px;">
             <button (click)="handleRequest('accept', req.id)" style="margin-right: 5px;" class="btn btn-sm btn-outline-success">
               <i class="fa fa-check"></i>

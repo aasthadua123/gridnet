@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
-import { ProfileComponent } from './profile/profile.component';
 
 const authRoutes: Routes = [
   { path: '', component: DashboardComponent, pathMatch: 'full'}
@@ -17,8 +16,7 @@ const authRoutes: Routes = [
     ReactiveFormsModule,
   ],
   declarations: [
-    DashboardComponent,
-    ProfileComponent
+    DashboardComponent
   ]
 })
 export class DashboardModule { }

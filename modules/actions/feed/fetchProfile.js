@@ -30,7 +30,7 @@ const fetcher = (req, res) => {
                         success: true,
                         id: profile._id,
                         name: profile.name,
-                        friends: profile.friends.length,
+                        friends: profile.friends,
                         feed: posts
                     })
                 }
