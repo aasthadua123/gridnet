@@ -28,58 +28,50 @@ const checkUser = (req, res) => {
         // Check if the user is banned
         if(user.status !== -1) {
           // Check if the password is correct
-          bcrypt.compare(req.body.password, user.password, (err, result) => {
-            if (err) {
-              res.json({
-                success: false,
-                msg: err.message
-              });
-            }
-            else {
-              if(result) {
-                // Check if the user is verified
-                if(user.verified.phone || user.verified.email) {
-                  let data = {
-                    "id": user._id,
-                    "username":user.username,
-                    "email":user.email,
-                    "level":user.level
-                  }
-                  let token = jwt.sign(data, req.app.get('signature'), {
-                   expiresIn: 86400 // expires in 24 hours
-                  });
-                  
-                  userModel.findOneAndUpdate({"username": user.username}, { $push:{"lastLogin":moment()} }, (err, doc) => {
-                      if (err) {
-                        res.json({
-                          success: false,
-                          msg: err.message
-                        });
-                      }
-                      else {
-                        res.json({
-                          success: true, 
-                          msg: 'Authenticated', 
-                          token: token
-                        });
-                      }
-                  });
+          
+            if(req.body.password == user.password) {
+              // Check if the user is verified
+              if(user.verified.phone || user.verified.email) {
+                let data = {
+                  "id": user._id,
+                  "username":user.username,
+                  "email":user.email,
+                  "level":user.level
                 }
-                else {
-                  res.json({ 
-                    success: false, 
-                    msg: 'Account not verified.' 
-                  });
-                }
+                let token = jwt.sign(data, req.app.get('signature'), {
+                 expiresIn: 86400 // expires in 24 hours
+                });
+                
+                userModel.findOneAndUpdate({"username": user.username}, { $push:{"lastLogin":moment()} }, (err, doc) => {
+                    if (err) {
+                      res.json({
+                        success: false,
+                        msg: err.message
+                      });
+                    }
+                    else {
+                      res.json({
+                        success: true, 
+                        msg: 'Authenticated', 
+                        token: token
+                      });
+                    }
+                });
               }
               else {
                 res.json({ 
                   success: false, 
-                  msg: 'Authentication failed. Wrong Password.'
+                  msg: 'Account not verified.' 
                 });
               }
             }
-          });
+            else {
+              res.json({ 
+                success: false, 
+                msg: 'Authentication failed. Wrong Password.'
+              });
+            }
+          
         }
         else {
           res.json({ 

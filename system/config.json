@@ -26,7 +26,7 @@
     "production": {
       "sign": "GlpqrD485TS@#BTJK$I!9*QPR",
       "cryptoKey":"fHVyK4/jOhAJdySRuDcYQvxXQDQUscIy2uYqLlytcgA=",
-      "database": "mongodb://admin:auzx254sd@ds161710.mlab.com:61710/gridnet",
+      "database": "mongodb://friends:Aasthadua123@ds023064.mlab.com:23064/friendsconnect",
       "cbLink":"http://localhost:8000/",
       "PORT": 8000,
       "salt": 20
@@ -34,7 +34,7 @@
     "development": {
       "sign": "secretText",
       "cryptoKey":"lP5fKRiPiHDPE24tX4W89w==",
-      "database": "mongodb://admin:auzx254sd@ds161710.mlab.com:61710/gridnet",
+      "database": "mongodb://friends:Aasthadua123@ds023064.mlab.com:23064/friendsconnect",
       "cbLink":"http://localhost:9000/",
       "PORT": 9000,
       "salt": 10
@@ -42,7 +42,7 @@
     "testing": {
       "sign": "testingSignature",
       "cryptoKey":"7e$7!nG",
-      "database": "mongodb://admin:auzx254sd@ds161710.mlab.com:61710/gridnet",
+      "database": "mongodb://friends:Aasthadua123@ds023064.mlab.com:23064/friendsconnect",
       "cbLink":"http://localhost:9500/",
       "PORT": 9500,
       "salt": 5

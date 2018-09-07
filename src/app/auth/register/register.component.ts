@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
     this.http.post('/auth/register', this.registerForm.value).subscribe(
       (res:any) => {
         if (res.success) {
-          this.router.navigate(['/auth/login'])
+          this.router.navigate(['/'])
         }
         else {
           this.snackBar.open(res.msg, '', { duration: 1000 });

@@ -27,8 +27,7 @@ export class LoginComponent implements OnInit {
         if (res.success) {
           sessionStorage.token = res.token;
           this.fetchProfile();
-        }
-        else {
+        } else {
           this.snackBar.open(res.msg, '', { duration: 1000 });
         }
       },
@@ -50,13 +49,12 @@ export class LoginComponent implements OnInit {
   }
 
   fetchProfile() {
-    this.http.get('/auth/status', { headers: { "x-access-token": sessionStorage.token } }).subscribe(
+    this.http.get('/auth/status', { headers: { 'x-access-token': sessionStorage.token } }).subscribe(
       (res: any) => {
         if (res.success) {
           sessionStorage.userid = res.data.id;
           this.router.navigate(['/home']);
-        }
-        else {
+        } else {
           this.snackBar.open(res.msg, '', { duration: 1000 });
         }
       },

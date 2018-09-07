@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ProfileComponent implements OnInit {
   params: any;
   profileInfo: any;
-  isFriend: boolean = false;
+  isFriend = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,

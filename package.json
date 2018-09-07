@@ -1,6 +1,6 @@
 {
-  "name": "gridnet",
-  "version": "1.1.0",
+  "name": "friend-connect",
+  "version": "1.0.0",
   "description": "A social network framework.",
   "main": "system/server.js",
   "scripts": {
@@ -11,10 +11,6 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/aadityachakravarty/gridnet.git"
-  },
   "keywords": [
     "Social",
     "Networking",
@@ -24,12 +20,7 @@
     "Angular",
     "Mongo"
   ],
-  "author": "Aaditya Chakravarty",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/aadityachakravarty/gridnet/issues"
-  },
-  "homepage": "https://github.com/aadityachakravarty/gridnet#readme",
+  "author": "Aastha Dua",
   "dependencies": {
     "@angular/animations": "^6.1.0",
     "@angular/cdk": "^6.4.2",

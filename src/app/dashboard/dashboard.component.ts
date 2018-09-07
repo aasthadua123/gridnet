@@ -13,6 +13,7 @@ export class DashboardComponent implements OnInit {
   feed: any;
   requests: any;
   newPost: FormGroup;
+  currentUser: string;
 
   constructor(
     private http: HttpClient,
@@ -42,6 +43,7 @@ export class DashboardComponent implements OnInit {
     this.refreshFeed();
     this.getRequests();
     this.posterInit();
+    this.getUserId();
   }
 
   refreshFeed() {
@@ -138,6 +140,22 @@ export class DashboardComponent implements OnInit {
           this.snackBar.open(err, '', { duration: 1000 });
         }
       );
+  }
+
+  getUserId() {
+    this.http.get('/auth/status', { headers: { "x-access-token": sessionStorage.token } }).subscribe(
+      (res: any) => {
+        if (res.success) {
+          this.currentUser = res.data.id;
+        }
+        else {
+          this.snackBar.open(res.msg, '', { duration: 1000 });
+        }
+      },
+      (err) => {
+        this.snackBar.open(err, '', { duration: 1000 });
+      }
+    );
   }
 
   handleRequest(type, id) {

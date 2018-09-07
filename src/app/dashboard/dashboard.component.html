@@ -1,5 +1,5 @@
 <nav class="navbar navbar-dark bg-primary">
-  <a class="navbar-brand">Gridnet</a>
+  <a class="navbar-brand">Friend Connect</a>
   <ul class="nav">
     <li class="nav-item">
       <button type="button" (click)="logout()" class="btn btn-secondary">Logout</button>
@@ -13,7 +13,7 @@
       <p>
         <button (click)="refreshFeed()" class="btn btn-block btn-primary">
           <i class="fa fa-newspaper-o"></i> Newsfeed</button>
-        <button routerLink="/profile" class="btn btn-block btn-primary">
+        <button routerLink='/profile/{{currentUser}}' class="btn btn-block btn-primary">
           <i class="fa fa-user"></i> Profile</button>
       </p>
     </div>
@@ -56,9 +56,7 @@
               <i class="fa fa-thumbs-down"></i> {{post.dislikes.length}}</button>
           </ng-template>
 
-          <button class="btn btn-outline-dark">
-            <i class="fa fa-comment"></i> {{post.comments.length}} Comments</button>
-        </div>
+          </div>
       </div>
     </div>
     <div class="col-sm-2 sidenav" style="overflow-y: auto; height: calc(100vh - 56px);border-right: 1px solid rgba(0, 0, 0, 0.1)">
